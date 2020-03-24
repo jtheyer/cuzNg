@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatIconRegistry } from "@angular/material/icon"; //needed to 'register'(i.e. inject) custom .svg icon
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'cuz-app';
+  constructor(private matIconRegistry: MatIconRegistry){
+  this.matIconRegistry.addSvgIcon(
+    `cuz-letters`,
+    `../assets/cuzLetters.svg`
+  );
+}
+  title = 'Cuz Excavating LLC';
 }
